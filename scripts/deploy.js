@@ -1,17 +1,17 @@
 const hre = require('hardhat')
 
-async function main(){
-    const lock = await hre.ethers.getContractFactory("Lock");
-    const Lock = await lock.deploy();
+async function deployChatApp(){
+    const ChatApp = await hre.ethers.getContractFactory("ChatApp");
+    const chatApp = await ChatApp.deploy();
 
-    await Lock.deployed();
+    await chatApp.waitForDeployment();
 
     console.log(
-        `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
+        `Contract address: ${chatApp.address}`
     );
 }
 
-main().catch((error) => {
+deployChatApp().catch((error) => {
     console.log(error);
     process.exitCode = 1;
 })
