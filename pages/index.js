@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useEffect, useState, useContext} from 'react'
+
+import { ChatAppContect } from '@/Context/ChatAppContext'
 
 const ChatApp = () => {
-  return (
-    <div>ChatApp</div>
-  )
+  const {} = useContext(ChatAppContect)
+  return <div>Hey</div>
 }
 
 export default ChatApp
