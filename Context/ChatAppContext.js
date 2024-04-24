@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 //internal import
 
-import {CheckIfWalletConnected, ConnectWallet, connectingWithContract} from '../Utils/apiFeature'
+import {CheckIfWalletConnected, connectWallet, connectingWithContract} from '../Utils/apiFeature'
 
 export const ChatAppContect = React.createContext();
 
@@ -29,7 +29,7 @@ export const ChatAppProvider = ({children}) => {
             //get contract
             const contract = await connectingWithContract();
             //get account
-            const connectAccount = await ConnectWallet();
+            const connectAccount = await connectWallet();
             setAccount(connectAccount);
             //get user name
             const userName = await contract.getUsername(connectAccount)
@@ -126,6 +126,8 @@ export const ChatAppProvider = ({children}) => {
                 addFriends, 
                 sendMessage, 
                 readUser,
+                connectWallet,
+                CheckIfWalletConnected,
                 account,
                 userName,
                 friendLists,

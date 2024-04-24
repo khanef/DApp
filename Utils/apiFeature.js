@@ -18,7 +18,7 @@ export const CheckIfWalletConnected = async () => {
     }
 }
 
-export const ConnectWallet = async () => {
+export const connectWallet = async () => {
     try {
         if(!window.ethereum) return console.log("Install Metamask");
 
@@ -32,7 +32,7 @@ export const ConnectWallet = async () => {
     }
 }
 
-const fetchContract = (signerOrProvider) => new ethers.Contract(ChatAppABI, ChatAppAddress, signerOrProvider);
+const fetchContract = (signerOrProvider) => new ethers.Contract( ChatAppAddress, ChatAppABI, signerOrProvider);
 
 export const connectingWithContract = async () => {
     try {
