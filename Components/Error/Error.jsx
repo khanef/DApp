@@ -2,9 +2,14 @@ import React from 'react'
 
 import Style from './Error.module.css'
 
-const Error = () => {
+const Error = ({error}) => {
   return (
-    <div>Error</div>
+    <div className={Style.Error}>
+      <div className={Style.Error_box}>
+        <h1>Please Fix This Error & Reload Browser</h1>
+        {error}
+      </div>
+    </div>
   )
 }
 

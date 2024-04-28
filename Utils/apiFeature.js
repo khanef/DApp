@@ -1,6 +1,6 @@
 
 import { ethers } from "ethers";
-import Web3modal from 'web3modal';
+import Web3Modal from "web3modal";
 
 import {ChatAppAddress, ChatAppABI} from '../Context/Constants'
 
@@ -36,7 +36,7 @@ const fetchContract = (signerOrProvider) => new ethers.Contract( ChatAppAddress,
 
 export const connectingWithContract = async () => {
     try {
-        const web3modal = new Web3modal();
+        const web3modal = new Web3Modal();
         const connection = await web3modal.connect();
         const provider = new ethers.providers.Web3Provider(connection);
         const signer = provider.getSigner();

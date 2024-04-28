@@ -11,7 +11,7 @@ export const ChatAppProvider = ({children}) => {
         //useState
     const [account, setAccount] = useState("");
     const [userName, setUserName] = useState("");
-    const [friendLists, setFriendList] = useState([]);
+    const [friendLists, setFriendLists] = useState([]);
     const [friendMsg, setFriendMsg] = useState([]);
     const [loading, setLoading] = useState(false);
     const [userLists, setUserLists] = useState([]);
@@ -36,7 +36,7 @@ export const ChatAppProvider = ({children}) => {
             setUserName(userName);
             //get my friend list 
             const friendLists = await contract.getMyFriendList()
-            setFriendList(friendLists)
+            setFriendLists(friendLists)
             //get all app user list
             const userList = await contract.getAllAppUser()
             setUserLists(userList)
@@ -45,6 +45,7 @@ export const ChatAppProvider = ({children}) => {
 
         } catch (error) {
             setError("Please Install And connect Your Wallet")
+            console.log(error)
         }
     }
 
